@@ -3,7 +3,6 @@ function K = selfTuning(data, k_max, m)
 % This function implements the self-tuning paper to automatically determine
 % the number of clusters
 % 
-%
 %   K = selfTuning(data, k_max, m)
 %  
 %  Input:

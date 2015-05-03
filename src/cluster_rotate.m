@@ -1,5 +1,5 @@
 
-function [K, clusts,best_group_index,Quality,Vr] = cluster_rotate(A,group_num,fig,method)
+function [K, clusts, best_group_index, Quality, Vr] = cluster_rotate(A, group_num, fig, method)
 
 mex evrot.cpp;
 
@@ -37,24 +37,21 @@ if( nargin < 3 )
     fig = 0;
 end
 if( nargin < 4 )
-    method = 1;  %% method to calculate cost gradient. 1 means true derivative
-                 %% change to any other value to estimate fradient numerically
+    method = 1;  % method to calculate cost gradient. 1 means true derivative
+                 % change to any other value to estimate fradient numerically
 end
-group_num = sort(group_num); %% ascending order
-group_num = setdiff(group_num,1); %% remove 1
+group_num = sort(group_num); % ascending order
+group_num = setdiff(group_num,1); % remove 1
 
-%%% obtain eigenvectors of laplacian of affinity matrix
-tic; 
+% obtain eigenvectors of laplacian of affinity matrix
 nClusts = max(group_num);
 [V,evals] = evecs(A,nClusts); 
-ttt = toc;
-disp(['evecs took ' num2str(ttt) ' seconds']);
 
-%%%%%% Rotate eigenvectors
+% rotate eigenvectors
 clear clusts;
 Vcurr = V(:,1:group_num(1));
 for g=1:length(group_num),
-    %%% make it incremental (used already aligned vectors)
+    % make it incremental (used already aligned vectors)
     if( g > 1 )
         Vcurr = [Vr{g-1},V(:,group_num(g))];
     end
