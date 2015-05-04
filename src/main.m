@@ -11,4 +11,5 @@ cd ../src/
 W = getKnnGraph(datasets{1}, 10, false);
 D = getDegree(W);
 L = getLaplacian('rw', W, D);
-[eigVec, eigVal] = eig(L);
+K = randomWalk(datasets{5}(:,2:3), 20, 5);
+K = guido(datasets{5}(:,2:3), 20, 5);

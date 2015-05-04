@@ -9,7 +9,7 @@ cur_clusters = pre_clusters;
 % Plus last center which is origin
 for i=1:q
     index = find(pre_clusters == i);
-    centers(i,:) = mean(points(index,:));
+    centers(i,:) = mean(points(index,:)',2)';
 end
 
 % pre-computer the M
@@ -29,13 +29,13 @@ while(true)
         point = points(i,:);
         % for each point, caculate the distance from each center
         % assign the point to the closest center
-        distance = zeros(q+1, 1) % store the distance from q+1 center
+        distance = zeros(q+1, 1); % store the distance from q+1 center
         for j=1:q % for each center
             cj = centers(j,:);
             if(cj * cj' > epsilon)
                 distance(j) = (point - cj) * M{j} * (point - cj)';
             else
-                norm(point - cj);
+                distance(j) = norm(point - cj);
             end
         end
         distance(q+1) = norm(point);
@@ -54,8 +54,8 @@ while(true)
     end
     % if center moved, re-compute the q+1 centers
     for i=1:(q+1)
-        index = find(cur_clusters == i);
-        centers(i,:) = mean(points(index,:));
+        index = find(pre_clusters == i);
+        centers(i,:) = mean(points(index,:)',2)';
     end
 end
 
