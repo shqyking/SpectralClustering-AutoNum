@@ -1,0 +1,89 @@
+<h2>Dip-means clustering package v.0.1</h2>
+<p><strong>Dip-means package</strong> is a Matlab implementation of the <em>dip-means clustering method</em>, which is an incremental clustering approach that provides a partition of a dataset and an estimation of the number of the underlying data clusters.</p>
+<p>Written by Argyris Kalogeratos <a href="http://www.cs.uoi.gr/~akaloger">http://www.cs.uoi.gr/~akaloger</a>. Release date for package version 0.1: August 2013. For any comments contact the author at &lt;argyriskalogeratos[at)gmail[onedot}com&gt;. See also the package page <a href="http://www.cs.uoi.gr/~akaloger/matterial/dip-means/">http://www.cs.uoi.gr/~akaloger/matterial/dip-means/</a> for future improvements/releases.</p>
+<p>Copyright (C) 2012-2013, Argyris Kalogeratos. License details can be found in the respective section at the end of this document.</p>
+<hr />
+<h3>Contents</h3>
+<ol>
+<li>Description</li>
+<li>Requirements</li>
+<li>Dependencies and third-party components</li>
+<li>Installation and Testing</li>
+<li>How to cite this work</li>
+<li>License</li>
+<li>Thanks</li>
+<li>References</li>
+</ol>
+<h3>1. Description</h3>
+<p>Learning the number of clusters is a key problem in data clustering. Dip-means  [1] is a robust incremental method to learn the number of data clusters that can be used as a wrapper around any iterative clustering algorithm of k-means family. In contrast to many popular methods which make assumptions about the underlying cluster distributions, dip-means only assumes a fundamental cluster property: each cluster to admit a <em>unimodal distribution</em>. The proposed algorithm considers each cluster member as an individual ‘viewer’ and applies a univariate statistic hypothesis test for unimodality (dip-test) on the distribution of distances between the viewer and the cluster members. Important advantages are:</p>
+<ul>
+<li>the unimodality test is applied on univariate distance vectors, </li>
+<li>it can be directly applied with kernel-based methods, since only the pairwise distances are involved in the computations. </li>
+</ul>
+<p>See also a presentation poster in [2].</p>
+<p><strong>This package is a Matlab implementation of dip-means clustering method [1]</strong>, while it redistributes, unaltered or with minor adaptations/changes, code for <em>Gaussian k-means method</em> (<em>g-means</em>) [3], <em>x-means</em> [4], and the computation of dip-statistic, that were already available online. For details on the third-party components see the respective section.</p>
+<h3>2. Requirements</h3>
+<p>The implementation has been tested on Matlab R2011b 64bit (713.0.564) and newer versions of the platform.</p>
+<h3>3. Dependencies and third-party components</h3>
+<p><code>./xmeans/*</code></p>
+<blockquote>
+<p>The x-means method that uses the Bayesian Information Criterion (BIC). Unfortunately, there is no information about the original source for this piece of code (any hints?). However, the code has been checked and reviewed for correctness.</p>
+</blockquote>
+<p><code>./gmeans/*</code> </p>
+<blockquote>
+<p>The Gaussian k-means (g-means) method that uses the Anderson-Darling statistic in the second file. Source: Coda Analyzer v0.2 <a href="http://www.lab.upc.edu/software/codas/index.html">http://www.lab.upc.edu/software/codas/index.html</a>.</p>
+</blockquote>
+<p><code>hartigansdiptestdemo.m</code></p>
+<blockquote>
+<p>A demonstration script for the dip statistic. Creates some obviously unimodal and bimodal Gaussian distributions just to show what dip statistic does. Written by Nic Price.</p>
+</blockquote>
+<p><code>HartigansDipSignifTest.m</code> and <code>HartigansDipTest.m</code></p>
+<blockquote>
+<p>Calculates Hartigans' dip statistic and its significance for an empirical pdf (vector of sample values). Written by F. Mechler.</p>
+</blockquote>
+<p><code>./var/*</code></p>
+<blockquote>
+<p>This folder contains various utility routines, some of which have been written by other authors.</p>
+</blockquote>
+<h3>4. Installation and Testing</h3>
+<p>No special installation is needed. Run <code>init.m</code> first to setup the paths and to open the basic files one needs:</p>
+<ul>
+<li><code>bistest.m</code>: the main file that provides a demonstration of the whole package. It opens a data file and executes some algorithms.</li>
+<li><code>./bisecting/bisect_kmeans.m</code>: the function of bisecting-based k-means. Takes various parameters, some of them in a structure. it is a wrapper around all splitting algorithms.</li>
+<li><code>bisect.m</code>: this performs a cluster split according to a splitting algorithm.</li>
+<li><code>test_unimodal_cluster.m</code>: it is the main function used by <code>bisect_kmeans.m</code> to check for cluster unimodality as described by dip-means.</li>
+<li><code>HartigansDipSignifTest.m</code>: this applies the dip-test on a vector with empirical observations (empirical pdf).</li>
+</ul>
+<p><strong>Important note</strong>: the code assumes that the input data matrix contains row-vectors. More info is provided by the inline description of each code file. </p>
+<p>So, to test the code do first the initialization with <code>init.m</code> and then run <code>bistest.m</code>. The two available datasets that come with this package are:</p>
+<ul>
+<li><code>iris.mat</code>: the well-known IRIS dataset form the UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml/datasets/Iris">http://archive.ics.uci.edu/ml/datasets/Iris</a>.</li>
+<li><code>combo_setting.mat</code>: a combo 2d dataset used for the experiments in the paper [1]. The dataset contains multiple structures of different geometrical properties that are generally well-separated in space.</li>
+</ul>
+<h3>5. How to cite this work</h3>
+<p>You may directly cite the paper [1] using the following <em>bibtex</em> file <a href="http://www.cs.uoi.gr/~akaloger/files/MyPapers/dipmeans.bib">http://www.cs.uoi.gr/~akaloger/files/MyPapers/dipmeans.bib</a>.</p>
+<h3>6. License</h3>
+<p>Copyright (C) 2012-2013, Argyris Kalogeratos. Dip-means package v.0.1 is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+<p>Dip-means package v.0.1 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License along with this software in the file LICENSE.txt. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+<p>Brief overview of the GNU GPL:</p>
+<ul>
+<li>Provides copyright protection: <strong>True</strong></li>
+<li>Can be used in commercial applications: <strong>True</strong></li>
+<li>Bug fixes / extensions must be released to the public domain: <strong>True</strong></li>
+<li>Provides an explicit patent license: <strong>False</strong></li>
+<li>Can be used in proprietary (closed source) applications: <strong>False</strong></li>
+<li>Is a viral license: <strong>True</strong></li>
+</ul>
+<p>Other resources for the license:</p>
+<ul>
+<li>A quick guide to GPLv3: <a href="https://www.gnu.org/licenses/quick-guide-gplv3.html">https://www.gnu.org/licenses/quick-guide-gplv3.html</a>.</li>
+<li>Full text of GPLv3: <a href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</a>.</li>
+</ul>
+<h3>7. Thanks</h3>
+<p>Special thanks to Prof. Aristidis Likas for his useful comments and support in the development of this package. Moreover, the author should also thank those contributed to any of the third-party components that were used and are redistributed by this package.</p>
+<h3>8. References</h3>
+<p>[1] Argyris Kalogeratos and Aristidis Likas, <em>Dip-means: an incremental clustering method for estimating the number of clusters</em>, In Proceedings of the 26th Conference on Neural Information Processing Systems (NIPS), 2012. <a href="http://www.cs.uoi.gr/~akaloger/files/MyPapers/dip-meansNIPS2012.pdf">http://www.cs.uoi.gr/~akaloger/files/MyPapers/dip-meansNIPS2012.pdf</a>.</p>
+<p>[2] Argyris Kalogeratos and Aristidis Likas, <em>Dip-means poster presentation</em>, NIPS 2012. <a href="http://www.cs.uoi.gr/~akaloger/files/MyPosters/dip_means_NIPS2012_poster.pdf">http://www.cs.uoi.gr/~akaloger/files/MyPosters/dip<em>means</em>NIPS2012_poster.pdf</a>.</p>
+<p>[3] Dan Pelleg and Andrew Moore, <em>X-means: Extending k-means with efficient estimation of the number of clusters</em>. In Proceedings of the 17th International Conference on Machine Learning, 2000.</p>
+<p>[4] Greg Hamerly and Charles Elkan, <em>Learning the k in k-means</em>. In Proceedings of the 17th Conference on Neural Information Processing Systems (NIPS), 2003.</p>
