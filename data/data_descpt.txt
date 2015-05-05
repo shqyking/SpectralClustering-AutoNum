@@ -1,12 +1,11 @@
 artificial:
 boat : 3
 four_gauss : 4
-jain : 2
+easy_doughnut : 2
 noisy_lines : 2
 regular : 16
 test_data : 2
 
-realworld:
 abalone : 29
 faults : 7
 glass : 6

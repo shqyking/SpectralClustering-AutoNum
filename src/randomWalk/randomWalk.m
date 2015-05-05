@@ -17,7 +17,7 @@ L = getLaplacian('rw', W, D);
 [eiVal, eiIdx] = sort(diag(eiVal),'descend');
 
 %Compute M-step eigengap
-M_max = 10000;
+M_max = 50000;
 deltaM = zeros(M_max, 1);
 KM = zeros(M_max, 1);
 for M=1:M_max
@@ -32,8 +32,11 @@ end
 
 %Find local maxima of deltaM
 [pks,locs] = findpeaks(deltaM);
-
-K = KM(locs(length(locs)));
+if length(locs) == 0
+    K = heuristic(data, k_max, m);
+else 
+    K = KM(locs(length(locs)));
+end
 
 
 %end
