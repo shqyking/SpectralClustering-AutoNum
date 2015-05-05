@@ -1,12 +1,13 @@
 % load the datasets
-cd ../data/
+cd ../data/artificial
 listing = dir;
 listing = listing(3:length(listing));
 datasets = cell(length(listing),1);
 for i=1:length(listing)
     datasets{i} = load(listing(i).name);
+    listing(i).name
 end
-cd ../src/
+cd ../../src/
 
 W = getKnnGraph(datasets{1}, 10, false);
 D = getDegree(W);
