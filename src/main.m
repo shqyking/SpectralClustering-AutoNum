@@ -1,5 +1,5 @@
 % load the datasets
-cd ../data/artificial
+cd ../data/realworld
 listing = dir;
 listing = listing(3:length(listing));
 datasets = cell(length(listing),1);
