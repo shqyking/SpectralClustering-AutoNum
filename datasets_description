@@ -1,0 +1,12 @@
+Datasets Description
+
+Artificial Datasets
+1. boat.csv: 			3 clusters, 3 dims (including labeling column)
+2. easy_doughnut.csv: 	2 clusters, 13 dims
+3. four_gauss.csv: 		4 clusters, 13 dims
+4. moon.csv: 			2 clusters, 3 dims
+5. noisy_lines.csv:		2 clusters, 3 dims
+6. regular.csv:			16 clusters, 3 dims
+
+Realworld Datasets
+1. 
