@@ -1,5 +1,6 @@
-function k = heuristic(data,k_min,k_max, m, a)
+function k = heuristic(data,k_max, m, a)
 
+k_min = 2;
 % data is an r x k matrix that includes r, k-dimensional instances we want
 % to cluster
 % k_min/k_max is the minimum/maximum number of clusters we want 
