@@ -12,6 +12,6 @@ Realworld Datasets
 1. balance-scale.csv:	3 clusters, 5 dims 
 2. breastTissue.csv:	6 clusters, 10 dims
 3. faults.csv:			7 clusters, 28 dims
-4. glass.csv:			7 clusters, 11 dims
+4. glass.csv:			7 clusters, 10 dims
 5. iris.csv:			3 clusters, 5 dims
 6. wine.csv:			3 clusters, 14 dims
