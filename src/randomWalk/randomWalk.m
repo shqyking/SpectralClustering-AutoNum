@@ -1,4 +1,4 @@
-function K = randomWalk(data, k_max, m)
+function K = randomWalk(data, k_max, m, mutual)
 
 % This function implements two automatic dermination: eigengap heuristic and
 % M-step eigengap
@@ -6,7 +6,7 @@ function K = randomWalk(data, k_max, m)
 % m is the parameter for the m-nearest neighbors similarity graph
 
 
-W = getKnnGraph(data, m, false);
+W = getKnnGraph(data, m, mutual);
 %degree matrix D
 D = getDegree(W);
 %Construct graph Laplacians
