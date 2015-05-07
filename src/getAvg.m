@@ -2,13 +2,14 @@ load res1.mat
 best1 = best(1:3,:);
 best2 = best(4:6,:);
 best3 = best(7:9,:);
-l = cell(6,1);
+l = cell(7,1);
 l{1} = 'target';
 l{2} = 'heuristic';
 l{3} = 'randomWalk';
 l{4} = 'guido';
 l{5} = 'selfTuning';
 l{6} = 'robust';
+l{7} = 'dip-means';
 
 h1 = bar(best1);
 set(gca,'XTickLabel',{'boat', 'doughnut', '4gauss'})
