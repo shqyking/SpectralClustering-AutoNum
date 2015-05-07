@@ -1,4 +1,5 @@
 function K = guido(data, max_q, m)
+% Code by Qiuyang Shen
 % this method is from Sanguinetti, Guido, Jonathan Laidler, and Neil D. Lawrence. 
 % "Automatic determination of the number of clusters using spectral algorithms." 
 % Machine Learning for Signal Processing, 2005 IEEE Workshop on. IEEE, 2005.
@@ -8,7 +9,8 @@ K=2;
 N = size(data, 1);
 W = getKnnGraph(data, m, false);
 D = getDegree(W);
-L = getLaplacian('rw', W, D);
+L = getLaplacian('sym', W, D);
+L(isnan(L)) = 0;
 [eigVec, eigVal] = eig(L);
 [eigVal, eigIdx] = sort(diag(eigVal),'descend');
 

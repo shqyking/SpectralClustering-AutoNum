@@ -1,4 +1,5 @@
 function W = getKnnGraph(points, k, mutual)
+% Code by Qiuyang Shen
 % get K nearest neighbors from points, return the Weight Matrix W
 % point is an N x d matrix
 % k is the number of neighbors

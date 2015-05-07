@@ -1,4 +1,5 @@
 function [clusters] = ekmeans(points, pre_clusters)
+% Code by Qiuyang Shen
 % points are N x q matrix, they are eigenvectors as columns
 % pre_clusters contains the cluster indices for each point
 % the length of pre_clusters is N

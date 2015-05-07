@@ -1,4 +1,5 @@
 function L = getLaplacian(type, W, D)
+% Code by Qiuyang Shen
 % return the graph Laplacian according to the type
 % maximum eigenvalue of thie laplacian is 1
 if(strcmp(type, 'unnormal'))

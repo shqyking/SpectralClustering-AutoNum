@@ -1,4 +1,5 @@
 function D = getDegree(W)
+% Code by Qiuyang Shen
 % Return the degree matrix D of weight matrix W
 % D is a N x N diagonal matrix
 N = size(W,1);
