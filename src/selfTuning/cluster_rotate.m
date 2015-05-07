@@ -58,7 +58,11 @@ for g=1:length(group_num),
     [clusts{g},Quality(g),Vr{g}] = evrot(Vcurr,method);
 end
 i = find(max(Quality)-Quality <= 0.001);
-best_group_index = i(numel(i));
+if (numel(i) <= 0)
+    best_group_index = 2;
+else
+    best_group_index = i(numel(i));
+end
 K = group_num(best_group_index);
 
 
