@@ -13,17 +13,20 @@ l{7} = 'dip-means';
 
 h1 = bar(best1);
 set(gca,'XTickLabel',{'boat', 'doughnut', '4gauss'})
+set(gca,'fontsize',14);
 l1 = legend(h1,l);
 set(l1,'position',[0 0 0.2 0.2],'FontSize', 14)
 ylim([0 6]);
 
 h2 = bar(best2);
-set(gca,'XTickLabel',{'moon','noisy','regular'})
+set(gca,'XTickLabel',{'half_ring','noisy','regular'})
+set(gca,'fontsize',14);
 l2 = legend(h2,l,'location','northwest');
-set(l2,'position',[0 0 0.2 0.2],'FontSize', 14)
+set(l2,'position',[0 0 0.2 0.2],'FontSize', 14);
 
 h3 = bar(best3);
 set(gca,'XTickLabel',{'glass','iris','wine'})
+set(gca,'fontsize',14);
 l3 = legend(h3,l);
 set(l3,'position',[0 0 0.2 0.2],'FontSize', 14)
 ylim([0 15]);
