@@ -1,6 +1,19 @@
 function K = robustAdaptiveClustering(data, k_max)
-%ROBUSTADAPTIVECLUSTERING Summary of this function goes here
-%   Detailed explanation goes here
+% This function implements the robust adaptive clustering method to automatically determine
+% the number of clusters
+% 
+%  K = robustAdaptiveClustering(data, k_max)
+%  
+%  Input:
+%        data - the input dataset
+%        k_max - the largest possible number of the clusters
+%               
+%  Output:
+%        K - the best number of clusters predicted by self-tuning algorithm
+%
+%  Code by Yun Sun
+%
+
 
 % initiate adjustment matrix
 N = size(data, 1);
